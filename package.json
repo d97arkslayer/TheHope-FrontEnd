@@ -1,6 +1,6 @@
 {
-  "name": "the-hope-front-end",
-  "version": "0.0.0",
+  "name": "thehope-frontend",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -44,5 +44,16 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d97arkslayer/TheHope-FrontEnd.git"
+  },
+  "author": "Esteban Herrera Orozco",
+  "bugs": {
+    "url": "https://github.com/d97arkslayer/TheHope-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/d97arkslayer/TheHope-FrontEnd#readme"
 }
