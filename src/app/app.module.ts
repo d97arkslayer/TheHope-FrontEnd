@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeacherComponent
+    TeacherComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
