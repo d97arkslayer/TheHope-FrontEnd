@@ -1,0 +1,121 @@
+
+<h1 class="text-center">Tareas</h1>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+   Crear
+  </button>
+  
+<hr>
+<table class="table table-bordered">
+<thead>
+<tr>
+  <th> Asignatura</th>
+  <th> Curso</th>
+  <th> Título</th>
+ 
+  <th> Acciones</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+      <th> Matemáticas</th>
+      <th> Curso 1</th>
+      <th> Sumas</th>
+      
+      <th> 
+        <button class="btn btn-warning">Editar</button>   
+        <button class="btn btn-info">Más información</button>     
+      </th>
+  </tr>
+
+  <tr>
+      <th> Matemáticas</th>
+      <th> Curso 1</th>
+      <th> Restas</th>
+      
+      <th> 
+        <button class="btn btn-warning">Editar</button>   
+        <button class="btn btn-info">Más información</button>     
+      </th>
+  </tr>
+  
+  <tr>
+      <th> Matemáticas</th>
+      <th> Curso 1</th>
+      <th> Multiplicaciones</th>
+      
+      <th> 
+        <button class="btn btn-warning">Editar</button>   
+        <button class="btn btn-info">Más información</button>     
+      </th>
+  </tr>
+</tbody>
+</table>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva tarea</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        
+            <form>
+               
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Seleccione la asignatura</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>Matemáticas</option>
+                      <option>2</option>
+                      
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Seleccione el curso</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>Curso 1</option>
+                      <option>2</option>
+                      
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label >Título</label>
+                    <input  class="form-control"  aria-describedby="emailHelp" placeholder="Ingrese el título">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="exampleFormControlSelect1">Seleccione el tema</label>
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Aritmética</option>
+                        <option>2</option>
+                        
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleFormControlFile1">Documento</label>
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                        <label >Fecha limite</label>
+                        <input  class="form-control" type="datetime" aria-describedby="emailHelp" placeholder="AA/MM/DD">
+                    </div>
+                    <div class="form-group">
+                        <label >Logros</label>
+                        <textarea  class="form-control" type="text" aria-describedby="emailHelp"></textarea>
+                    </div>
+    
+              </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
