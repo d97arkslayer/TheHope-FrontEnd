@@ -41,13 +41,14 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form (submit)="addGrade($event)"  >
+        <form (submit)="addGrade($event)" [formGroup]="gradeForm" >
         <div class="modal-body">
         
             
                 <div class="form-group">
                   <label >Nombre</label>
-                  <input  class="form-control"  aria-describedby="emailHelp" name="name" [(ngModel)]="name"  placeholder="Ingrese el nombre">
+                  <input  class="form-control" formControlName="nameV" required aria-describedby="emailHelp" name="name" [(ngModel)]="name"  placeholder="Ingrese el nombre">
+                 
                 </div>
                
                 
@@ -57,7 +58,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!gradeForm.valid">Guardar cambios</button>
         </div>
       </form>
       </div>

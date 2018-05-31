@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GradeService} from '../Services/grade.service';
 import { Grade } from '../Models/grade.model';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 
@@ -14,6 +15,8 @@ export class GradesComponent implements OnInit {
 
   grades: Grade[];
   name: string;
+  gradeForm: FormGroup;
+
   constructor(private gradeService: GradeService) {
     this.gradeService.getGrades()
     .subscribe(grades => {
@@ -23,7 +26,15 @@ export class GradesComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.gradeForm = new FormGroup({
+      name: new FormControl(this.name, [
+        Validators.required,
+        Validators.minLength(4)
+      ])
+    });
   }
+  
+
 
   addGrade(event) {
     event.preventDefault();  // Evita que se refresque la pagina
