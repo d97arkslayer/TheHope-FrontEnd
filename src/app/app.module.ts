@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CourseComponent } from './course/course.component';
 import { TaskComponent } from './task/task.component';
+import { GradesComponent } from './grades/grades.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TaskComponent } from './task/task.component';
     TeacherComponent,
     NavBarComponent,
     CourseComponent,
-    TaskComponent
+    TaskComponent,
+    GradesComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {TeacherService} from '../Services/teacher.service';
 import { Teacher } from '../Models/teacher.model';
 
+
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
@@ -21,6 +22,7 @@ lastName: string;
       console.log(teachers);
        this.teachers = teachers;
     });
+
   }
 
   ngOnInit() {
