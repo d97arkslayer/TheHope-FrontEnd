@@ -16,37 +16,15 @@
 </tr>
 </thead>
 <tbody>
-  <tr>
-      <th> Curso 1</th>
-      <th> grado1</th>
+  <tr *ngFor="let course of courses" >
+      <th>{{course.name}}</th>
+      <th>{{course.grade.name}} </th>
       <th> 
         <button class="btn btn-warning">Editar</button>
         <button class="btn btn-danger">Eliminar</button>
         
       </th>
   </tr>
-  
-  <tr>
-      <th> Curso 2</th>
-      <th> grado1</th>
-      <th> 
-        <button class="btn btn-warning">Editar</button>
-        <button class="btn btn-danger">Eliminar</button>
-        
-      </th>
-  </tr>
-
-  <tr>
-      <th> Curso 3</th>
-      <th> grado1</th>
-      <th> 
-        <button class="btn btn-warning">Editar</button>
-        <button class="btn btn-danger">Eliminar</button>
-        
-      </th>
-  </tr>
-
-  
 </tbody>
 </table>
 
@@ -61,32 +39,28 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form (submit)="addCourse($event)">
         <div class="modal-body">
         
-            <form>
+            
                 <div class="form-group">
                   <label >Nombre</label>
-                  <input  class="form-control"  aria-describedby="emailHelp" placeholder="Ingrese el nombre">
+                  <input  class="form-control"  name="name" [(ngModel)]="name" placeholder="Ingrese el nombre">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Seleccione el grado</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>grado 1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <select class="form-control" name="grade_id" [(ngModel)]="grade_id">
+                      <option *ngFor="let grade of grades" [value]="grade.id" >{{grade.name}}</option>
                     </select>
+            
                 </div>
-                
-               
-              </form>
-
+              
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar cambios</button>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
         </div>
+      </form>
       </div>
     </div>
   </div>
