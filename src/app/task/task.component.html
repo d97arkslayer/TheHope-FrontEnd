@@ -17,7 +17,16 @@
 </tr>
 </thead>
 <tbody>
-  
+  <tr *ngFor="let tarea of tareas" >
+    <th>{{tarea.class_id}}</th>
+    <th>{{tarea.class_id}}</th>
+    <th>{{tarea.title}}</th>
+    <th>
+      <button class="btn btn-warning">Editar</button>
+      <button class="btn btn-danger">Eliminar</button>
+      
+    </th>
+</tr>
 </tbody>
 </table>
 
@@ -54,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <label >Título</label>
-                    <input  class="form-control"  aria-describedby="emailHelp" placeholder="Ingrese el título">
+                    <input  class="form-control"  aria-describedby="emailHelp" placeholder="Ingrese el título"  name="title" [(ngModel)]="title" >
                   </div>
 
                   <div class="form-group">
@@ -65,17 +74,19 @@
                         
                       </select>
                   </div>
+
                   <div class="form-group">
                       <label for="exampleFormControlFile1">Documento</label>
                       <input type="file" class="form-control-file" id="exampleFormControlFile1">
                     </div>
+
                     <div class="form-group">
                         <label >Fecha limite</label>
-                        <input  class="form-control" type="datetime" aria-describedby="emailHelp" placeholder="AA/MM/DD">
+                        <input  class="form-control" type="datetime" aria-describedby="emailHelp" placeholder="AA/MM/DD"  name="limitDate" [(ngModel)]="limitDate" >
                     </div>
                     <div class="form-group">
                         <label >Logros</label>
-                        <textarea  class="form-control" type="text" aria-describedby="emailHelp"></textarea>
+                        <textarea  class="form-control" type="text" aria-describedby="emailHelp" name="description" [(ngModel)]="description"></textarea>
                     </div>
     
               </form>
