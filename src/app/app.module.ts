@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CourseComponent } from './course/course.component';
 import { TaskComponent } from './task/task.component';
 import { GradesComponent } from './grades/grades.component';
+import { TaresPendientesComponent } from './tares-pendientes/tares-pendientes.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GradesComponent } from './grades/grades.component';
     NavBarComponent,
     CourseComponent,
     TaskComponent,
-    GradesComponent
+    GradesComponent,
+    TaresPendientesComponent
   ],
   imports: [
     BrowserModule,
