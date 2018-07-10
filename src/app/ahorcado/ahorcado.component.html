@@ -1,0 +1,42 @@
+<div class="container">
+ <h1 class="text-center">AHORCADO</h1>
+ <hr>
+<div class="row">
+ <div class="col-lg-7">
+
+ <p>{{preguntaTemporal}}
+  </p>
+
+</div>
+<div class="col-lg-5">
+<img src="../../assets/game.png" style="width: 70%; height: auto;">
+</div>
+</div>
+
+<br>
+<div class="row">
+    <div class=" col-lg-8">
+        <h2  class="text-center">Respuesta</h2>
+        <table class="table table-bordered">
+            <tr style="height: 40px;">
+              <td style="width: 40px; " *ngFor="let num of numbers">a</td>
+            </tr>
+          </table>
+    </div>
+    <div class="col-lg-4">
+      <h2 class="text-center">Respuesta</h2>
+      <hr>
+        <form class="form-inline">
+           
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="inputPassword2" class="sr-only">Password</label>
+              <input  class="form-control" id="inputPassword2" style="width:40px;">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" >Verificar</button>
+          </form>
+   
+    </div>
+</div>
+
+
+</div>
