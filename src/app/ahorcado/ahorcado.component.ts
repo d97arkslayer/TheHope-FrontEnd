@@ -39,10 +39,14 @@ export class AhorcadoComponent implements OnInit {
   this.respuestaTemporal=this.preguntas[indice].respuesta;
   console.log(this.preguntas[indice].respuesta.length);
  
-    let respuesta : any[];
+   // let respuesta : any[];
+ // for (var i=0;i<this.preguntas[indice].respuesta.length;i++){
+  //  respuesta.push(this.preguntas[indice].respuesta.charAt(i));
+  var respuesta:string[]= new Array(this.preguntas[indice].respuesta.length);
   for (var i=0;i<this.preguntas[indice].respuesta.length;i++){
-    respuesta.push(this.preguntas[indice].respuesta.charAt(i));
+    respuesta[i]=(this.preguntas[indice].respuesta.charAt(i));
   }
+ // }
 
  }
 
