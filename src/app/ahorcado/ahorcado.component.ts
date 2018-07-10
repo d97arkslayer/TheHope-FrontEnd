@@ -10,10 +10,11 @@ import { debug } from 'util';
 export class AhorcadoComponent implements OnInit {
 
     preguntas: Prengunta [] = new Array();
+    respuestaActual: string [] = new Array();
 
    preguntaTemporal: string;
    respuestaTemporal: string;
-   
+   intentos:number=6;
 
   constructor() { 
   this.llenarPreguntas();
@@ -47,8 +48,38 @@ export class AhorcadoComponent implements OnInit {
     respuesta[i]=(this.preguntas[indice].respuesta.charAt(i));
   }
  // }
+  this.respuestaActual= respuesta;
+ //this.verificarLetra("i",respuesta);
 
  }
+
+ verificarLetra(letra : string)
+ {
+    this.respuestaActual.forEach(element => {
+      if (element===letra) {
+        console.log("Correcto "+ element);
+      }
+      
+    },
+    alert("Has ingresado una letra incorrecta lo sentimos") );
+    this.intentos= this.intentos-1;
+    if (this.intentos>0) {
+      alert("Intentalo otra vez, tienes "+ this.intentos)
+    }
+ 
+ }
+
+
+ evaluar(event, letra:string)
+ {
+    event.preventDefault();
+   
+   letra=(<HTMLInputElement>document.getElementById("letra")).value;
+   console.log("letra buscada: "+ letra);
+   this.verificarLetra(letra);
+  
+
+ } 
 
 
 }
