@@ -75,6 +75,8 @@ export class AhorcadoComponent implements OnInit {
   }
 
   this.respuestaActual= respuesta;
+  this.intentos=6;
+
   
  //this.verificarLetra("i",respuesta);
 
@@ -140,7 +142,29 @@ export class AhorcadoComponent implements OnInit {
       this.ManejadorPreguntas+=1;
       this.seleccionarPregunta(this.ManejadorPreguntas)
   }
-  
+  if (this.intentos===6) {  
+
+  (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/m9kxWo/ahorcado6.png";
+  }
+  if (this.intentos=== 5) {
+    (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/nPN0j8/ahorcado5.png";
+  }
+  if (this.intentos=== 4) {
+    (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/kgYUcT/ahorcado4.png";
+  }
+  if (this.intentos=== 3) {
+    (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/juUPBo/ahorcado3.png";
+  }
+  if (this.intentos=== 2) {
+    (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/goX0j8/ahorcado2.png";
+  }
+  if (this.intentos=== 1) {
+    (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/jWkLj8/ahorcado1.png";
+  }
+  if (this.intentos=== 0) {
+    (<HTMLImageElement>document.getElementById("imagenAhorcado")).src="https://image.ibb.co/fHurro/ahorcado0.png";
+  }
+
  }
 
 

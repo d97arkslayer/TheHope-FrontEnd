@@ -1,53 +1,51 @@
 <div class="container">
- <h1 class="text-center">AHORCADO</h1>
+ <h1 class="text-center">AHORCADO Tienes {{intentos}} intentos </h1>
  <hr>
 <div class="row">
  <div class="col-lg-7">
-
  <h1>{{preguntaTemporal}}
  </h1>
+ <hr>
+
+<div class="row">
+ <div class=" col-lg-8">
+  <h2  class="text-center">Respuesta</h2>
+  <label id="labelResultados" style="font-size: xx-large"></label>
+  <table class="table table-bordered" id="tablaResultados">
+      <tr style="height: 40px;">
+        <td style="width: 40px; " *ngFor="let num of numbers">a</td>
+      </tr>
+    </table>
+</div>
+<div class="col-lg-4">
+<h2 class="text-center">Letra</h2>
+<hr>
+<form (submit)="evaluar($event)" >
+
+  <div class="form-group mx-sm-3 mb-2" >
+  <input class="form-control" id="letra"  placeholder=":)"   style="width:70px;" >      
+  <hr>
+  <button type="submit" class="btn btn-primary">    Evaluar     </button>
+</div>
+</form> 
+</div>
+</div>
+
+
+
 
 </div>
 <div class="col-lg-5">
-<img src="../../assets/game.png" style="width: 70%; height: auto;">
+<img src="https://image.ibb.co/m9kxWo/ahorcado6.png" id="imagenAhorcado" style="width: 70%; height: auto;">
 </div>
 </div>
 
 <br>
 <div class="row">
-    <div class=" col-lg-8">
-        <h2  class="text-center">Respuesta</h2>
-        <label id="labelResultados" style="font-size: xx-large"></label>
-        <table class="table table-bordered" id="tablaResultados">
-            <tr style="height: 40px;">
-              <td style="width: 40px; " *ngFor="let num of numbers">a</td>
-            </tr>
-          </table>
-    </div>
-    <div class="col-lg-4">
-      <h2 class="text-center">Respuesta</h2>
-      <hr>
-        <form class="form-inline">
-           
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="inputPassword2" class="sr-only">Password</label>
-              <input  class="form-control" id="inputPassword2" style="width:40px;">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2" >Verificar</button>
-          </form>
-   
-    </div>
+    
 </div>
 
 
-<form (submit)="evaluar($event)">
-  
-    <div class="form-group mx-sm-3 mb-2">
-    <input class="form-control" id="letra"  placeholder=":)"   style="width:40px;">      
-    
-    <button type="submit" class="btn btn-primary">    Evaluar     </button>
-  </div>
-</form> 
 
 </div>
 
