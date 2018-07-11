@@ -105,6 +105,7 @@ export class AhorcadoComponent implements OnInit {
   if (this.intentos>0) {
     alert("Intentalo otra vez, tienes "+ this.intentos)
   }
+
     }
     
     this.pintarLetras();
