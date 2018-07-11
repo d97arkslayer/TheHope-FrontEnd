@@ -16,6 +16,7 @@ export class AhorcadoComponent implements OnInit {
    preguntaTemporal: string;
    respuestaTemporal: string;
    intentos:number=6;
+   ManejadorPreguntas: number= 0;
 
   constructor() { 
   this.llenarPreguntas();
@@ -45,7 +46,7 @@ export class AhorcadoComponent implements OnInit {
 
 
     p1.respuesta = "amarillo";
-    p2.respuesta = "Real";
+    p2.respuesta = "real";
     p3.respuesta = "lunes";
     p4.respuesta = "negro";
     p5.respuesta = "esperanza";
@@ -64,6 +65,7 @@ export class AhorcadoComponent implements OnInit {
  seleccionarPregunta(indice : number){
   this.preguntaTemporal=this.preguntas[indice].pregunta;
   this.respuestaTemporal=this.preguntas[indice].respuesta;
+  this.LetrasEncontradas=[];
   console.log(this.preguntas[indice].respuesta.length);
  
  
@@ -135,7 +137,10 @@ export class AhorcadoComponent implements OnInit {
   if(contadorLetras===this.respuestaActual.length)
   {
       alert("!!! COMPLETASTE LA PALABRA MUY BIEN :D");
+      this.ManejadorPreguntas+=1;
+      this.seleccionarPregunta(this.ManejadorPreguntas)
   }
+  
  }
 
 
