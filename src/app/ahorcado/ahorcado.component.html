@@ -4,8 +4,8 @@
 <div class="row">
  <div class="col-lg-7">
 
- <p>{{preguntaTemporal}}
-  </p>
+ <h1>{{preguntaTemporal}}
+ </h1>
 
 </div>
 <div class="col-lg-5">
@@ -17,7 +17,8 @@
 <div class="row">
     <div class=" col-lg-8">
         <h2  class="text-center">Respuesta</h2>
-        <table class="table table-bordered">
+        <label id="labelResultados" style="font-size: xx-large"></label>
+        <table class="table table-bordered" id="tablaResultados">
             <tr style="height: 40px;">
               <td style="width: 40px; " *ngFor="let num of numbers">a</td>
             </tr>
