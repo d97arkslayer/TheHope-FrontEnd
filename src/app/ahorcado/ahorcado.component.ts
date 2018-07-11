@@ -11,6 +11,7 @@ export class AhorcadoComponent implements OnInit {
 
     preguntas: Prengunta [] = new Array();
     respuestaActual: string [] = new Array();
+    LetrasEncontradas:String[]= new Array();
 
    preguntaTemporal: string;
    respuestaTemporal: string;
@@ -72,6 +73,7 @@ export class AhorcadoComponent implements OnInit {
   }
 
   this.respuestaActual= respuesta;
+  
  //this.verificarLetra("i",respuesta);
 
  }
@@ -84,10 +86,13 @@ export class AhorcadoComponent implements OnInit {
     this.respuestaActual.forEach(element => {
       contador=contador+1;
       if (element===letra) {
-        alert("Letra correcta"+ contador);        
+        alert("Letra correcta"+ contador);   
+        this.LetrasEncontradas.push(element);     
         bandera=false;
-        (<HTMLInputElement>document.getElementById("labelResultados")).textContent=(<HTMLInputElement>document.getElementById("labelResultados")).textContent+letra;
-      }         
+        
+        //(<HTMLInputElement>document.getElementById("labelResultados")).textContent=(<HTMLInputElement>document.getElementById("labelResultados")).textContent+letra;
+      } 
+     
       
     });
     if (contador>=this.respuestaActual.length && bandera) {
@@ -98,7 +103,7 @@ export class AhorcadoComponent implements OnInit {
   }
     }
     
- 
+    this.pintarLetras();
  }
 
 
@@ -112,6 +117,26 @@ export class AhorcadoComponent implements OnInit {
   
 
  } 
+
+ pintarLetras()
+ {
+   var contadorLetras=0;
+  (<HTMLInputElement>document.getElementById("labelResultados")
+).textContent=" ";
+  this.respuestaActual.forEach(element => {
+    if (this.LetrasEncontradas.indexOf(element)>-1) {
+      (<HTMLInputElement>document.getElementById("labelResultados")
+    ).textContent=(<HTMLInputElement>document.getElementById("labelResultados")).textContent+element;
+    contadorLetras+=1;
+    }
+    else
+    (<HTMLInputElement>document.getElementById("labelResultados")).textContent=(<HTMLInputElement>document.getElementById("labelResultados")).textContent+" __ "; 
+  });
+  if(contadorLetras===this.respuestaActual.length)
+  {
+      alert("!!! COMPLETASTE LA PALABRA MUY BIEN :D");
+  }
+ }
 
 
 }
