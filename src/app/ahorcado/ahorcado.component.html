@@ -3,7 +3,7 @@
 <div class="row" id="panelGanador">
     <hr>
    
- <div class="col-lg-7" id="reemplazo">  
+ <div class="col-lg-7" *ngIf="!cerrar" >  
     <h2 class="text-center">AHORCADO Tienes {{intentos}} intentos </h2>
   <hr>
   <h2>Enunciado:</h2>
@@ -12,24 +12,20 @@
  <div class="row" >
  <div class=" col-lg-9">
   <h2  class="text-center">Respuesta</h2>
-  <label id="labelResultados" style="font-size: xx-large"></label>
-  <div  id="tablaResultados" >
-      
-        <label id="labelInicial"   *ngFor="let letra of respuestaActual" style="font-size: xx-large"> __ &nbsp;</label>
-      
-  </div>
+  <label id="labelResultados"  style="font-size: xx-large">{{labelResultados}}</label>
+ 
 </div>
 <div class="col-lg-3">
 <h2 class="text-center">Letra</h2>
 <hr>
-<form (submit)="evaluar($event)" >
+
 
   <div class="form-group mx-sm-3 mb-2" >
-  <input class="form-control" id="letra" maxlength="1"  style="width:70px;" >      
+  <input class="form-control" name="letra" minlength="1" maxlength="1"  required style="width:70px;" [(ngModel)]="letra" >      
   <hr>
-  <button type="submit" class="btn btn-primary">    Evaluar     </button>
+  <button  class="btn btn-primary" (click)="evaluar()">Evaluar</button>
 </div>
-</form> 
+
 </div>
 </div>
 
@@ -37,8 +33,27 @@
 
 
 </div>
+<div class="col-lg-7 perdio" *ngIf="perdio"  >
+    <h1 class="text-center">
+      Perdiste :'('
+    </h1>
+    <button class="btn btn-primary" (click)="reintentar()">Reintentar</button>
+</div>
+<div class="col-lg-7 perdio" *ngIf="gano"  >
+  <h1 class="text-center">
+    ganaste :')'
+  </h1>
+  <button class="btn btn-primary" (click)="siguientePregunta()">siguiente pregunta</button>
+</div>
+<div class="col-lg-7 exito" *ngIf="victorias==3"  >
+  <h1 class="text-center">
+    ganaste :')' Respondiste bien todas las preguntas, Sigue así!!!
+  </h1>
+  
+</div>
+
 <div class="col-lg-5">
-<img src="https://image.ibb.co/m9kxWo/ahorcado6.png" id="imagenAhorcado" style="width: 70%; height: auto;">
+<img src={{imagenes[intentos]}} id="imagenAhorcado" style="width: 70%; height: auto;">
 </div>
 </div>
 

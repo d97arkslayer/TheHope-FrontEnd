@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Prengunta } from '../Models/prengunta'
 import { debug } from 'util';
 
+
 @Component({
   selector: 'app-ahorcado',
   templateUrl: './ahorcado.component.html',
@@ -12,14 +13,28 @@ export class AhorcadoComponent implements OnInit {
   preguntas: Prengunta[] = new Array();
   respuestaActual: string[] = new Array();
   LetrasEncontradas: String[] = new Array();
+  imagenes=[
+    "../../assets/ahorcado0.png",
+    "../../assets/ahorcado1.png",
+    "../../assets/ahorcado2.png",
+    "../../assets/ahorcado3.png",
+    "../../assets/ahorcado4.png",
+    "../../assets/ahorcado5.png",
+    "../../assets/ahorcado6.png"
+  ]
 
+  preguntaActual=0;
   preguntaTemporal: string;
   respuestaTemporal: string;
-  intentos: number = 6;
-  exitos: number = 0;
-  ManejadorPreguntas: number = 0;
-  banderaRespueta: number = -1;
+  intentos;
+  letra:string;
+  labelResultados="";
+  perdio=true;
+  gano=false;
+  cerrar=true;
 
+  victorias:number=0;
+  
   constructor() {
     this.llenarPreguntas();
     this.seleccionarPregunta(0);
@@ -30,9 +45,26 @@ export class AhorcadoComponent implements OnInit {
   ngOnInit() {
   }
 
-   sleep(ms = 0) {
-    return new Promise(r => setTimeout(r, ms));
-}
+  reintentar(){
+    this.seleccionarPregunta(this.preguntaActual);
+  }
+  siguientePregunta(){
+   
+    this.preguntaActual++;
+    this.seleccionarPregunta(this.preguntaActual);
+    
+  }
+  termino(){
+   
+    this.victorias=0;
+    
+    ///hacer mas cosas
+    this.cerrar=false;
+    
+  }
+  
+
+
 
   llenarPreguntas() {
 
@@ -74,140 +106,83 @@ export class AhorcadoComponent implements OnInit {
 
 
   seleccionarPregunta(indice: number) {
+    this.perdio=false;
+    this.cerrar=false;
+    this.gano=false;
+    
+    this.intentos=6;
     this.preguntaTemporal = this.preguntas[indice].pregunta;
     this.respuestaTemporal = this.preguntas[indice].respuesta;
     this.LetrasEncontradas = [];
     
-
+    this.labelResultados="";
     var respuesta: string[] = new Array(this.preguntas[indice].respuesta.length);
     for (var i = 0; i < this.preguntas[indice].respuesta.length; i++) {
       respuesta[i] = (this.preguntas[indice].respuesta.charAt(i));
+      this.labelResultados+="_ "
     }
 
     this.respuestaActual = respuesta;
-    this.intentos = 6;
-
-
-
-    //this.verificarLetra("i",respuesta);
-
+   
   }
-
-  verificarLetra(letra: string) {
-    var contador: number = 0;
-    var bandera: boolean = true;
-
-    this.respuestaActual.forEach(element => {
-      contador = contador + 1;
-      if (element === letra) {
-
-        this.LetrasEncontradas.push(element);
-        bandera = false;
-
-        //(<HTMLInputElement>document.getElementById("labelResultados")).textContent=(<HTMLInputElement>document.getElementById("labelResultados")).textContent+letra;
-      }
+  evaluar() {
+  
 
 
-    });
-    if (contador >= this.respuestaActual.length && bandera) {
-      
-      this.intentos = this.intentos - 1;
-      if (this.intentos > 0) {
-        
-        this.pintarLetras();
-      }
-      else
-        var divPerdedor = <HTMLDivElement>(document.createElement('div'));
-      divPerdedor.style.width = "600px";
-      divPerdedor.style.backgroundColor = "#da382a";
-      divPerdedor.style.borderWidth = "50px";
-      divPerdedor.style.borderRadius = "20px";
-      divPerdedor.style.borderColor = "black";
-      divPerdedor.style.fontFamily="Impact";
-      divPerdedor.style.fontSize="50px";
-      divPerdedor.style.textAlign="center";
-      divPerdedor.textContent = "HAS PERDIDO, ESTUDIA Y REPITE LA PRUEBA";
-      (<HTMLDivElement>document.getElementById("panelGanador").replaceChild(divPerdedor, <HTMLDivElement>document.getElementById("reemplazo")));
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/fHurro/ahorcado0.png";
-    }
-
-    this.pintarLetras();
+   let aux="";
+for(var j=0;j<this.labelResultados.length;j++){
+  if(this.labelResultados.charAt(j)!= ' '){
+    aux+=this.labelResultados.charAt(j);
   }
+}
 
 
-  evaluar(event, letra: string) {
-    event.preventDefault();
-
-    letra = (<HTMLInputElement>document.getElementById("letra")).value;
-    this.verificarLetra(letra);
-
-
-  }
-
-  pintarLetras() {
+this.labelResultados="";
+let contadorExito=0;
+let respuestaMala=true;
+ for(var i=0;i<this.respuestaTemporal.length;i++)
+{
+  if(this.letra==this.respuestaTemporal.charAt(i)){
+    this.labelResultados+=this.letra;
+    respuestaMala=false;
+    contadorExito++;
+  }else{
     
-    var contadorLetras = 0;
-    (<HTMLLabelElement>document.getElementById("labelInicial")).hidden = false;
-    (<HTMLInputElement>document.getElementById("labelResultados")).textContent = " ";
-
-    this.respuestaActual.forEach(element => {
-
-      if (this.LetrasEncontradas.indexOf(element) > -1) {
-        (<HTMLInputElement>document.getElementById("labelResultados")
-        ).textContent = (<HTMLInputElement>document.getElementById("labelResultados")).textContent + element;
-        contadorLetras += 1;
-      }
-      else
-        (<HTMLInputElement>document.getElementById("labelResultados")).textContent = (<HTMLInputElement>document.getElementById("labelResultados")).textContent + " __ ";
-    });
-
-    
-    if (contadorLetras === this.respuestaActual.length) {
-      this.ManejadorPreguntas += 1;
-      this.exitos += 1;
-      if (this.exitos === 3) {
-        alert("ERES EL MEJOR EN ESTE JUEGO");
-
-        var divGanador = <HTMLDivElement>(document.createElement('div'));
-        divGanador.style.width = "600px";
-        divGanador.style.backgroundColor = "#a8fceb";
-        divGanador.style.textAlign="center";
-        divGanador.style.borderWidth = "50px";
-        divGanador.style.borderRadius = "20px";
-        divGanador.style.borderColor = "black";
-        divGanador.style.fontFamily="Impact";
-        divGanador.style.fontSize="50px";
-        divGanador.textContent = "GANASTE LOS TRES RETOS, GRACIAS POR PARTICIPAR";
-        (<HTMLDivElement>document.getElementById("panelGanador").replaceChild(divGanador, <HTMLDivElement>document.getElementById("reemplazo")));
-
-      } 
-      this.seleccionarPregunta(this.ManejadorPreguntas);
+    if(aux.charAt(i)=='_'){
+      this.labelResultados+="_ ";
+     
+    }else{
+      this.labelResultados+=aux.charAt(i);
+          contadorExito++;
     }
-    if (this.intentos === 6) {
-
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/m9kxWo/ahorcado6.png";
-    }
-    if (this.intentos === 5) {
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/nPN0j8/ahorcado5.png";
-    }
-    if (this.intentos === 4) {
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/kgYUcT/ahorcado4.png";
-    }
-    if (this.intentos === 3) {
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/juUPBo/ahorcado3.png";
-    }
-    if (this.intentos === 2) {
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/goX0j8/ahorcado2.png";
-    }
-    if (this.intentos === 1) {
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/jWkLj8/ahorcado1.png";
-    }
-    if (this.intentos === 0) {
-      (<HTMLImageElement>document.getElementById("imagenAhorcado")).src = "https://image.ibb.co/fHurro/ahorcado0.png";
-      
-    }
-
   }
+
+}
+
+if(respuestaMala){
+  this.intentos--;
+}
+if(this.intentos==0){
+  this.perdio=true;
+  this.cerrar=true;
+
+}
+if(aux.length==contadorExito){
+  this.gano=true;
+  this.cerrar=true;
+  this.victorias++;
+  
+}
+ this.letra='';
+
+ 
+ console.log(this.victorias);
+ if(this.victorias==3){
+   this.cerrar=true
+   this.gano=false;
+ }
+  }
+
 
 
 }
