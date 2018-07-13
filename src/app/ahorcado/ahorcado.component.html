@@ -1,29 +1,31 @@
 <div class="container">
- <h1 class="text-center">AHORCADO Tienes {{intentos}} intentos </h1>
+        
+<div class="row" id="panelGanador">
+    <hr>
+   
+ <div class="col-lg-7" id="reemplazo">  
+    <h2 class="text-center">AHORCADO Tienes {{intentos}} intentos </h2>
+  <hr>
+  <h2>Enunciado:</h2>
+ <h1>{{preguntaTemporal}} </h1>
  <hr>
-<div class="row">
- <div class="col-lg-7">
- <h1>{{preguntaTemporal}}
- </h1>
- <hr>
-
-<div class="row">
- <div class=" col-lg-8">
+ <div class="row" >
+ <div class=" col-lg-9">
   <h2  class="text-center">Respuesta</h2>
   <label id="labelResultados" style="font-size: xx-large"></label>
-  <table class="table table-bordered" id="tablaResultados">
-      <tr style="height: 40px;">
-        <td style="width: 40px; " *ngFor="let num of numbers">a</td>
-      </tr>
-    </table>
+  <div  id="tablaResultados" >
+      
+        <label id="labelInicial"   *ngFor="let letra of respuestaActual" style="font-size: xx-large"> __ &nbsp;</label>
+      
+  </div>
 </div>
-<div class="col-lg-4">
+<div class="col-lg-3">
 <h2 class="text-center">Letra</h2>
 <hr>
 <form (submit)="evaluar($event)" >
 
   <div class="form-group mx-sm-3 mb-2" >
-  <input class="form-control" id="letra"  placeholder=":)"   style="width:70px;" >      
+  <input class="form-control" id="letra"   style="width:70px;" >      
   <hr>
   <button type="submit" class="btn btn-primary">    Evaluar     </button>
 </div>
