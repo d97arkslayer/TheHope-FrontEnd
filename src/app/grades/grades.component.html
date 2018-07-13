@@ -16,7 +16,7 @@
 </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let grade of grades">
+  <tr *ngFor="let grade of preguntaTemporal.length">
      
       <th> {{grade.name}}</th>
       <th> 
@@ -46,7 +46,7 @@
         
             
                 <div class="form-group">
-                  <label >Nombre</label>
+                  <label>Nombre</label>
                   <input  class="form-control" formControlName="nameV" required aria-describedby="emailHelp" name="name" [(ngModel)]="name"  placeholder="Ingrese el nombre">
                  
                 </div>

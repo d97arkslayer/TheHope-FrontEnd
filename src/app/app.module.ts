@@ -11,6 +11,7 @@ import { CourseComponent } from './course/course.component';
 import { TaskComponent } from './task/task.component';
 import { GradesComponent } from './grades/grades.component';
 import { TaresPendientesComponent } from './tares-pendientes/tares-pendientes.component';
+import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TaresPendientesComponent } from './tares-pendientes/tares-pendientes.co
     CourseComponent,
     TaskComponent,
     GradesComponent,
-    TaresPendientesComponent
+    TaresPendientesComponent,
+    AhorcadoComponent
   ],
   imports: [
     BrowserModule,
