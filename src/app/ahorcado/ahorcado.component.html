@@ -1,0 +1,68 @@
+<div class="container">
+        
+<div class="row" id="panelGanador">
+    <hr>
+   
+ <div class="col-lg-7" *ngIf="!cerrar" >  
+    <h2 class="text-center">AHORCADO Tienes {{intentos}} intentos </h2>
+  <hr>
+  <h2>Enunciado:</h2>
+ <h1>{{preguntaTemporal}} </h1>
+ <hr>
+ <div class="row" >
+ <div class=" col-lg-9">
+  <h2  class="text-center">Respuesta</h2>
+  <label id="labelResultados"  style="font-size: xx-large">{{labelResultados}}</label>
+ 
+</div>
+<div class="col-lg-3">
+<h2 class="text-center">Letra</h2>
+<hr>
+
+
+  <div class="form-group mx-sm-3 mb-2" >
+  <input class="form-control" name="letra" minlength="1" maxlength="1"  required style="width:70px;" [(ngModel)]="letra" >      
+  <hr>
+  <button  class="btn btn-primary" (click)="evaluar()">Evaluar</button>
+</div>
+
+</div>
+</div>
+
+
+
+
+</div>
+<div class="col-lg-7 perdio" *ngIf="perdio"  >
+    <h1 class="text-center">
+      Perdiste :'('
+    </h1>
+    <button class="btn btn-primary" (click)="reintentar()" >Reintentar</button>
+</div>
+<div class="col-lg-7 exito" *ngIf="gano"  >
+  <h1 class="text-center">
+    ganaste :')'
+  </h1>
+  <button class="btn btn-primary" (click)="siguientePregunta()">siguiente pregunta</button>
+</div>
+<div class="col-lg-7 exito" *ngIf="victorias==3"  >
+  <h1 class="text-center">
+    ganaste :')' Respondiste bien todas las preguntas, Sigue así!!!
+  </h1>
+  
+</div>
+
+<div class="col-lg-5">
+<img src={{imagenes[intentos]}} id="imagenAhorcado" style="width: 70%; height: auto;">
+</div>
+</div>
+
+<br>
+<div class="row">
+    
+</div>
+
+
+
+</div>
+
