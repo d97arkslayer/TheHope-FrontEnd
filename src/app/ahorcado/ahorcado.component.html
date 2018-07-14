@@ -6,8 +6,8 @@
  <div class="col-lg-7" *ngIf="!cerrar" >  
     <h2 class="text-center">AHORCADO Tienes {{intentos}} intentos </h2>
   <hr>
-  <h2>Enunciado:</h2>
- <h1>{{preguntaTemporal}} </h1>
+  <h2>Pregunta:</h2>
+ <h2>{{preguntaTemporal}} </h2>
  <hr>
  <div class="row" >
  <div class=" col-lg-9">
@@ -35,19 +35,28 @@
 </div>
 <div class="col-lg-7 perdio" *ngIf="perdio"  >
     <h1 class="text-center">
-      Perdiste :'('
+      Respondiste mal la pregunta <br>
+      ¡Perdiste! <br>
+      Debes estudiar más los temas para superar la actividad
     </h1>
-    <button class="btn btn-primary" (click)="reintentar()" >Reintentar</button>
+    <button class="btn btn-primary" (click)="reintentar()" style="margin-left: 240px" >Reintentar</button>
 </div>
 <div class="col-lg-7 exito" *ngIf="gano"  >
   <h1 class="text-center">
-    ganaste :')'
+    Respuesta correcta<br>
+    Sigue avanzado en las preguntas<br>
+    ¡Vas muy bien!<br>  
   </h1>
-  <button class="btn btn-primary" (click)="siguientePregunta()">siguiente pregunta</button>
+
+  <button class="btn btn-primary" (click)="siguientePregunta()" style="margin-left:210px ">siguiente pregunta</button>
+
 </div>
 <div class="col-lg-7 exito" *ngIf="victorias==3"  >
   <h1 class="text-center">
-    ganaste :')' Respondiste bien todas las preguntas, Sigue así!!!
+    !Ganaste¡ 
+    <hr>
+    Respondiste bien todas las preguntas<hr>
+    !!!Sigue así!!!
   </h1>
   
 </div>

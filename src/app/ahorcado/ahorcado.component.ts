@@ -46,6 +46,7 @@ export class AhorcadoComponent implements OnInit {
   }
 
   reintentar(){
+    this.victorias=0;
     this.seleccionarPregunta(this.preguntaActual);
   }
   siguientePregunta(){
@@ -54,7 +55,7 @@ export class AhorcadoComponent implements OnInit {
     this.seleccionarPregunta(this.preguntaActual);
     
   }
-  termino(){
+  finalizarJuego(){
    
     this.victorias=0;
     
@@ -76,7 +77,7 @@ export class AhorcadoComponent implements OnInit {
     let p6: Prengunta = new Prengunta();
 
 
-    p1.pregunta = " Mejor equipo de futbol";
+    p1.pregunta = " Estado de agregación de la materia compuesto principalmente por moléculas no unidas, expandidas y con poca fuerza de atracción";
     p2.pregunta = " Mayor color de la bandera";
     p3.pregunta = " Primer dia de la semana";
     p4.pregunta = " Opuesto al blanco";
@@ -85,7 +86,7 @@ export class AhorcadoComponent implements OnInit {
 
 
 
-    p1.respuesta = "real";
+    p1.respuesta = "gaseoso";
     p2.respuesta = "amarillo";
     p3.respuesta = "lunes";
     p4.respuesta = "negro";
