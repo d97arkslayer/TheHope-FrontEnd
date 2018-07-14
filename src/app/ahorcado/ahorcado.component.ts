@@ -8,6 +8,7 @@ import { debug } from 'util';
   templateUrl: './ahorcado.component.html',
   styleUrls: ['./ahorcado.component.css']
 })
+///Clase del ahorcado
 export class AhorcadoComponent implements OnInit {
 
   preguntas: Prengunta[] = new Array();
