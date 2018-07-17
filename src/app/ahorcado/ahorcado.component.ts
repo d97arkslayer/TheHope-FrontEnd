@@ -8,7 +8,6 @@ import { debug } from 'util';
   templateUrl: './ahorcado.component.html',
   styleUrls: ['./ahorcado.component.css']
 })
-///Clase del ahorcado
 export class AhorcadoComponent implements OnInit {
 
   preguntas: Prengunta[] = new Array();
@@ -102,7 +101,6 @@ export class AhorcadoComponent implements OnInit {
     this.preguntas.push(p5);
     this.preguntas.push(p6);
 
-
   }
 
 
@@ -128,7 +126,6 @@ export class AhorcadoComponent implements OnInit {
    
   }
   evaluar() {
-  
 
 
    let aux="";
